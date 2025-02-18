@@ -148,7 +148,7 @@ def _launch_demo(args, model, processor):
         tokenizer = processor.tokenizer
         streamer = TextIteratorStreamer(tokenizer, timeout=200.0, skip_prompt=True, skip_special_tokens=True)
 
-        gen_kwargs = {'max_new_tokens': 512, 'streamer': streamer, **inputs}
+        gen_kwargs = {'max_new_tokens': 2048, 'streamer': streamer, **inputs}
 
         thread = Thread(target=model.generate, kwargs=gen_kwargs)
         thread.start()
